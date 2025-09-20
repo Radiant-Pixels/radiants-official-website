@@ -5,11 +5,28 @@
   --foreground: #171717;
 }
 
+@font-face {
+  font-family: "Schabo";
+  src: url("/fonts/SCHABO-Condensed.woff") format("woff"),
+}
+@font-face {
+  font-family: "Aeonik";
+  src: url("/fonts/Aeonik-Regular.woff2") format("woff2"),
+}
+@font-face {
+  font-family: "Schabo";
+  src: url("/fonts/SCHABO-Condensed.woff") format("woff"),
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-tan-headline: var(--font-tan-headline);
+  --font-playfair: var(--font-playfair);
+  --font-schabo: Schabo;
+  --font-aeonik: Aeonik;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -24,3 +41,5 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
