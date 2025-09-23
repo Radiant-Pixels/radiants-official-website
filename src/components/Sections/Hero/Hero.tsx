@@ -6,11 +6,11 @@ import { CustomEase } from "gsap/CustomEase";
 import styles from "./Hero.module.scss";
 
 const terminals = [
-  "https://radiant.space/init/start",
-  "https://radiant.space/loader/sequence",
-  "https://radiant.space/core/boot",
-  "https://radiant.space/assets/prep",
-  "https://radiant.space/system/ok",
+  "https://radiantsofficial.com/init/start",
+  "https://radiantsofficial.com/loader/sequence",
+  "https://radiantsofficial.com/core/boot",
+  "https://radiantsofficial.com/assets/prep",
+  "https://radiantsofficial.com/system/ok",
 ];
 
 const HeroWithPreloader = () => {
@@ -21,7 +21,7 @@ const HeroWithPreloader = () => {
   const preloaderRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
-  const heroImgRef = useRef<HTMLDivElement>(null);
+  const heroBoxRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
 
   // Preloader logic
@@ -63,7 +63,7 @@ const HeroWithPreloader = () => {
       textInterval = setInterval(() => {
         i = (i + 1) % terminals.length;
         setText(terminals[i]);
-      }, 800);
+      }, 300);
     };
 
     if (document.readyState === "complete") {
@@ -81,7 +81,7 @@ const HeroWithPreloader = () => {
 
   // Hero animation
   const animateHero = () => {
-    if (!heroRef.current || !overlayRef.current || !heroImgRef.current || !headerRef.current) return;
+    if (!heroRef.current || !overlayRef.current || !heroBoxRef.current || !headerRef.current) return;
 
     gsap.registerPlugin(CustomEase);
     CustomEase.create(
@@ -117,8 +117,8 @@ const HeroWithPreloader = () => {
           ease: "hop",
         });
 
-        if (heroImgRef.current) {
-          const img = heroImgRef.current.querySelector("img");
+        if (heroBoxRef.current) {
+          const img = heroBoxRef.current.querySelector("img");
           if (img) {
             gsap.to(img, {
               transform: "scale(1)",
@@ -185,9 +185,9 @@ const HeroWithPreloader = () => {
           </div>
           <div className={styles.navCol}>
             <div className={styles.navItems}>
-              <a href="#">work</a>
-              <a href="#">studio</a>
-              <a href="#">contact</a>
+              <a href="/work">work</a>
+              <a href="/pixels">pixels</a>
+              <a href="/cores">cores</a>
             </div>
             <div className={styles.navItems}>
               <a href="https://www.instagram.com/radiant_enterprises.official/" target="_blank" rel="noopener noreferrer">instagram</a>
@@ -202,9 +202,7 @@ const HeroWithPreloader = () => {
           <h1>radiants</h1>
         </div>
 
-        <div ref={heroImgRef} className={styles.heroImg}>
-          <img src="/assets/heroimg.jpg" alt="" />
-        </div>
+        <div ref={heroBoxRef} className={styles.heroBox}></div>
       </section>
     </>
   );
