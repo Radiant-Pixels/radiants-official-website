@@ -1,8 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #171717;
+  --foreground: #ffffff;
+}
+
+@font-face {
+  font-family: 'Soehnse';        /* Custom name to use in CSS */
+  src: url('/fonts/Soehne.woff2') format('woff2');
+  font-weight: 400;             /* Regular weight */
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Blanquotey';        /* Custom name to use in CSS */
+  src: url('/fonts/Blanquotey.ttf') format('truetype');
+  font-weight: 400;             /* Regular weight */
+  font-style: normal;
 }
 
 @font-face {
