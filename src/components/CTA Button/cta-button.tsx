@@ -77,7 +77,7 @@ const handleHoverOut = () => {
 
         {/* Text */}
         <span ref={textRef} className={styles.text}>
-          Let's Talk
+          About Us
         </span>
 
         {/* Arrow */}
