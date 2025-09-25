@@ -22,7 +22,9 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" >
+      <head>
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {/* Client-side Preloader + PreHero logic */}
         {/* <PreloaderWrapper>{children}</PreloaderWrapper> */}

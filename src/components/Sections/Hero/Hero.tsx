@@ -148,7 +148,7 @@ const HeroWithPreloader = () => {
       {!loaded && (
         <div
           ref={preloaderRef}
-          className="fixed inset-0 bg-[#ebebeb] text-[#1a1a1a] font-mono z-[9999] flex items-center justify-center"
+          className="fixed inset-0 bg-amber-300 text-[#1a1a1a] font-mono z-[9999] flex items-center justify-center"
         >
           <div className="w-[600px]">
             <div className="flex items-center justify-between px-2 py-1 text-sm">
