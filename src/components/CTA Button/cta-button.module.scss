@@ -21,14 +21,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  
+  .dotInner {
+    width: 7px;
+    height: 7px;
+    background-color: #0cac8a;
+    border-radius: 50%;
+  }
 }
 
-.dotInner {
-  width: 7px;
-  height: 5px;
-  background-color: #0cac8a;
-  border-radius: 50%;
-}
 
 .text {
   font-family: "Soehnse", sans-serif;

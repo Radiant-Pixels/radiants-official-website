@@ -13,7 +13,7 @@ const handleHover = () => {
   if (!dotRef.current || !btnRef.current) return;
 
   gsap.to(dotRef.current, {
-    scale: 24,
+    scale: 28,
     borderRadius: 9999,
     backgroundColor: "#0cac8a",
     duration: 0.5,
@@ -71,7 +71,9 @@ const handleHoverOut = () => {
         onMouseLeave={handleHoverOut}
       >
         {/* Dot */}
-        <span ref={dotRef} className={styles.dot}></span>
+        <span className={styles.dot}>
+          <span ref={dotRef} className={styles.dotInner}></span>
+        </span>
 
         {/* Text */}
         <span ref={textRef} className={styles.text}>

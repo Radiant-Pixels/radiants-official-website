@@ -1,0 +1,13 @@
+.headingContainer {
+  overflow: hidden;
+  margin-bottom: 2rem;
+
+  .headingLine1,
+  .headingLine2 {
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 1.2;
+    opacity: 0; // initial opacity for GSAP
+    display: inline-block; // needed for x translation
+  }
+}
