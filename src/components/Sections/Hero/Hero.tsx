@@ -4,6 +4,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import { CustomEase } from "gsap/CustomEase";
 import styles from "./Hero.module.scss";
+import Navbar from "@/components/Navbar/Navbar";
 
 const terminals = [
   "https://radiantsofficial.com/init/start",
@@ -17,6 +18,7 @@ const HeroWithPreloader = () => {
   const [loaded, setLoaded] = useState(false);
   const [progress, setProgress] = useState(0);
   const [text, setText] = useState(terminals[0]);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const preloaderRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLElement>(null);
@@ -174,29 +176,7 @@ const HeroWithPreloader = () => {
       <section ref={heroRef} className={styles.hero}>
         <div ref={overlayRef} className={styles.overlay}></div>
 
-        <nav>
-          <div className={styles.navCol}>
-            <div className={styles.navItems}>
-              <a href="#">radiants</a>
-            </div>
-            <div className={styles.navItems}>
-              <p>innovation hub</p>
-            </div>
-          </div>
-          <div className={styles.navCol}>
-            <div className={styles.navItems}>
-              <a href="/work">work</a>
-              <a href="/pixels">pixels</a>
-              <a href="/cores">cores</a>
-            </div>
-            <div className={styles.navItems}>
-              <a href="https://www.instagram.com/radiant_enterprises.official/" target="_blank" rel="noopener noreferrer">instagram</a>
-            </div>
-            <div className={styles.navItems}>
-              <p>anywhere, earth</p>
-            </div>
-          </div>
-        </nav>
+        <Navbar />
 
         <div ref={headerRef} className={styles.header}>
           <h1>radiants</h1>

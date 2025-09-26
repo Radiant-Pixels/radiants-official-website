@@ -85,11 +85,16 @@
   left: 50%;
   transform: translate(-50%, -50%) scale(0.7);
   width: 100%;
-  height: 104vh;
+  height: 100vh;
   clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
   will-change: transform;
   z-index: 1;
   background-color: oklch(87.9% 0.169 91.605);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 
   .overlay {
     position: absolute;
@@ -129,18 +134,9 @@
     }
   }
 
-.underline {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 2px;
-    width: 0%;
-    background-color: #1a1a1a;
-    display: block;
-}
-
   .header {
-    position: absolute;
+    position: relative;
+    text-align: center;
     width: 100%;
     top: 5%;
     left: 0;
@@ -167,16 +163,86 @@
     .heroBox {
       position: relative;       // So children can be positioned relative to it
       width: 90%;             // Or whatever width you want
-      height: 400px;            // Fixed height
+      height: 40vh;            // Fixed height
       background-color: #1a1a1a; // Optional: background color
       overflow: hidden;         // Clip children if needed
       border-radius: 24px;      // Optional: rounded corners
       display: flex;            // So you can align children easily
       align-items: center;      // vertical center
       justify-content: center;  // horizontal center
-      top: 50%;
-      left: 5%;
+      margin-top: 2rem;         // Space from header
     }
+
+.menutoggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    .menubar {
+      width: 25px;
+      height: 2px;
+      background: #1a1a1a;
+      transition: all 0.3s ease;
+    }
+  }
+
+  &.opened .menubar[data-position="top"] {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  &.opened .menubar[data-position="bottom"] {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  .menucopy p {
+    margin-left: 0.5rem;
+    font-weight: bold;
+  }
+}
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: #1a1a1a;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  z-index: 999;
+
+  &.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .menu-links {
+    list-style: none;
+    text-align: center;
+
+    li {
+      margin: 1rem 0;
+      font-size: 2rem;
+
+      a {
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
 
   @media (max-width: 900px) {
     .navCol:nth-child(1) .navItems:nth-child(2) p {
@@ -188,7 +254,7 @@
     }
 
     .header {
-      top: 30%;
+      top: 5%;
     }
 
     .heroImg {
