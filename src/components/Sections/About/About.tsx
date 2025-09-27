@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import CTAButton from "@/components/CTA Button/cta-button";
 import Copy from "@/components/Copy/Copy";
 import Copy1 from "@/components/Copy/Copy1";
@@ -7,9 +7,10 @@ import CopyLines from "@/components/Copy/CopyLine";
 import "./styles.css";
 
 const AboutSection = () => {
+
   return (
     <>
-      <section className="min-h-screen flex flex-col md:flex-row items-center md:items-center">
+      <section className="h-full flex flex-col md:flex-row items-center md:items-center">
         {/* Left: Headings + Image */}
         <div className="flex flex-col gap-25 w-full pl-8 md:pl-16">
           <div>
@@ -44,7 +45,6 @@ const AboutSection = () => {
         </CopyLines>
             <CTAButton />
         </div>
-      {/* <img src="/images/aboutline.svg" alt="About Line" className="squiggle" /> */}
       </section>
     </>
   );
