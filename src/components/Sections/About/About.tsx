@@ -30,7 +30,7 @@ const AboutSection = () => {
             </div>
           </div>
           <div className="flex items-center justify-center sm:justify-start">
-            <div className="w-[75%] h-64 md:h-80 bg-gray-300 rounded-xl md:translate-x-[5vw]"></div>
+            <div className="w-[75%] h-64 md:h-80 bg-[#1a1a1a] rounded-xl md:translate-x-[5vw]"></div>
           </div>
         </div>
 

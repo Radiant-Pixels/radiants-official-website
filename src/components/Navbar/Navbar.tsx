@@ -12,7 +12,7 @@ export default function Navbar() {
   const images = [
     // "/images/logos/blush-commercial.png",
     // "/images/logos/blush-hospital.png",
-    "/images/next.svg",
+    // "/images/next.svg",
   ];
 
 //   useEffect(() => {
@@ -58,6 +58,9 @@ export default function Navbar() {
       if (menuToggle.classList.contains("active")) {
         menuToggle.classList.remove("closed");
         menuToggle.classList.add("opened");
+
+        document.body.classList.add("menu-open");
+
         isAnimating = true;
 
         gsap.to(menu, {
@@ -117,6 +120,9 @@ export default function Navbar() {
       } else {
         menuToggle.classList.remove("opened");
         menuToggle.classList.add("closed");
+
+        document.body.classList.remove("menu-open"); 
+
         isAnimating = true;
 
         gsap.to(menu, {

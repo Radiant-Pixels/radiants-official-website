@@ -13,7 +13,7 @@ const handleHover = () => {
   if (!dotRef.current || !btnRef.current) return;
 
   gsap.to(dotRef.current, {
-    scale: 28,
+    scale: 38,
     borderRadius: 9999,
     backgroundColor: "#0cac8a",
     duration: 0.5,
