@@ -12,18 +12,24 @@ body {
   background-size: cover;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
+body.menu-open {
+  overflow: hidden;
+  height: 100vh;
+  position: fixed; /* locks the scroll on mobile too */
+  width: 100%;
+}
 
 .logo,
 .menu-logo {
   position: absolute;
   top: 2em;
-  left: 5%
+  left: 9%
   ;
 }
 
 .logo a,
 .menu-logo a {
-  left: 35%;
+  /* left: 5%; */
   text-decoration: none;
   font-size: 30px;
   font-weight: bold;
@@ -49,7 +55,7 @@ body {
   transition: width 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   transform-origin: right;
   cursor: pointer;
-  z-index: 1;
+  z-index: 999;
 }
 
 .menu-toggle.opened {
