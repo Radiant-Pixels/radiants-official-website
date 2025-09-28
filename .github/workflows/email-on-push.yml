@@ -3,7 +3,7 @@ name: Email on Push
 on:
   push:
     branches:
-      - main   # or whichever branch you want to monitor
+      - main   # change branch if needed
 
 jobs:
   send-email:
@@ -21,8 +21,8 @@ jobs:
           username: ${{ secrets.EMAIL_USER }}
           password: ${{ secrets.EMAIL_PASS }}
           subject: "🚀 New push to ${{ github.repository }}"
+          from: ${{ secrets.EMAIL_USER }}   # 👈 REQUIRED
           to: ${{ secrets.EMAIL_TO }}
-          from: ${{ secrets.EMAIL_USER }}   # 👈 REQUIRED (must match your sending email)
           body: |
             A new push was made to **${{ github.repository }}**.
             
