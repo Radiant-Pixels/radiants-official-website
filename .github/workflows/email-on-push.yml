@@ -3,7 +3,7 @@ name: Email on Push
 on:
   push:
     branches:
-      - main   # change if needed
+      - main   # adjust branch if needed
 
 jobs:
   send-email:
@@ -22,7 +22,7 @@ jobs:
           password: ${{ secrets.EMAIL_PASS }}
           subject: "🚀 New push to ${{ github.repository }}"
           to: ${{ secrets.EMAIL_TO }}
-          from: ${{ secrets.EMAIL_USER }}
+          from: ${{ secrets.EMAIL_USER }}   # 👈 required
           body: |
             A new push was made to **${{ github.repository }}**.
 
