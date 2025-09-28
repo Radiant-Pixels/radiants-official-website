@@ -14,14 +14,14 @@ const AboutSection = () => {
         {/* Left: Headings + Image */}
         <div className="flex flex-col gap-25 w-full pl-8 md:pl-16">
           <div>
-            <div className="text-6xl md:text-9xl sm:text-9xl font-bold font-aeonik translate-x-[5vw] whitespace-nowrap">
+            <div className="text-5xl md:text-9xl sm:text-9xl font-bold font-aeonik translate-x-[5vw] whitespace-nowrap">
               <Copy1 delay={0.2}>
                 <h1>
                   Making Ideas
                 </h1>
               </Copy1>
               </div>
-            <div className="text-6xl md:text-9xl sm:text-9xl font-bold font-aeonik translate-x-[5vw]">
+            <div className="text-5xl md:text-9xl sm:text-9xl font-bold font-aeonik md:translate-x-[5vw] translate-x-[4vw]">
               <Copy delay={0.3}>
                 <h1>
                   Into Reality
@@ -45,7 +45,14 @@ const AboutSection = () => {
         </CopyLines>
             <CTAButton />
         </div>
+
       </section>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
     </>
   );
 };

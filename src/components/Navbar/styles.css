@@ -321,3 +321,22 @@ body.menu-open {
     height: 120px;
   }
 }
+
+@media (max-width: 768px) {
+  .logo {
+    top: 3em;
+    left: 1em;
+    font-size: 24px;
+  }
+
+  .menu-toggle {
+    top: 2em;
+    right: 1em;
+    width: 120px;
+    height: 60px;
+  }
+
+  .menu-copy p {
+    font-size: 15px;
+  }
+}

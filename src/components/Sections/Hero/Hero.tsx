@@ -7,11 +7,11 @@ import styles from "./Hero.module.scss";
 import Navbar from "@/components/Navbar/Navbar";
 
 const terminals = [
-  "https://radiantsofficial.com/init/start",
-  "https://radiantsofficial.com/loader/sequence",
-  "https://radiantsofficial.com/core/boot",
-  "https://radiantsofficial.com/assets/prep",
-  "https://radiantsofficial.com/system/ok",
+  "radiants/init/start",
+  "radiants/loader/sequence",
+  "radiants/core/boot",
+  "radiants/assets/prep",
+  "radiants/system/ok",
 ];
 
 const HeroWithPreloader = () => {
@@ -148,29 +148,40 @@ const HeroWithPreloader = () => {
     <>
       {/* Preloader */}
       {!loaded && (
-        <div
-          ref={preloaderRef}
-          className="fixed inset-0 bg-amber-300 text-[#1a1a1a] font-mono z-[9999] flex items-center justify-center"
-        >
-          <div className="w-[600px]">
-            <div className="flex items-center justify-between px-2 py-1 text-sm">
-              <div className="flex items-center gap-2">
-                <span className="animate-pulse">
-                  <Image src="/play.png" alt="Play" width={16} height={16} />
-                </span>
-                <span>LOADING - {progress}%</span>
-              </div>
-              <div className="text-xs uppercase">{text}</div>
-            </div>
-            <div className="w-full h-[2px] bg-[#ffffff]">
-              <div
-                className="h-full bg-[#1a1a1a] transition-all duration-200"
-                style={{ width: `${progress}%` }}
-              />
-            </div>
-          </div>
+  <div
+    ref={preloaderRef}
+    className="fixed inset-0 bg-amber-300 text-[#1a1a1a] font-mono z-[9999] flex items-center justify-center p-4"
+  >
+    <div
+      className="
+        w-[90svw] max-w-md  /* 90% of small viewport on mobile, cap at md width */
+        sm:w-[70svw] sm:max-w-lg
+        md:w-[60svw] md:max-w-xl
+      "
+    >
+      {/* Header row */}
+      <div className="flex flex-wrap items-center justify-between px-2 py-1 text-xs sm:text-sm gap-2">
+        <div className="flex items-center gap-2">
+          <span className="animate-pulse shrink-0">
+            <Image src="/play.png" alt="Play" width={16} height={16} />
+          </span>
+          <span className="truncate">LOADING - {progress}%</span>
         </div>
-      )}
+        <div className="text-[10px] sm:text-xs uppercase truncate max-w-[60%] text-right">
+          {text}
+        </div>
+      </div>
+
+      {/* Progress bar */}
+      <div className="w-full h-[2px] bg-[#ffffff]">
+        <div
+          className="h-full bg-[#1a1a1a] transition-all duration-200"
+          style={{ width: `${progress}%` }}
+        />
+      </div>
+    </div>
+  </div>
+)}
 
       {/* Hero */}
       <section ref={heroRef} className={styles.hero}>

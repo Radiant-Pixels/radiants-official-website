@@ -34,7 +34,7 @@ export default function Copy1({
         // Instead of raw whitespace, insert a fixed-width spacer
         const spacer = document.createElement("span");
         spacer.className = "inline-block"; 
-        spacer.style.width = "0.5em"; 
+        spacer.style.width = "0.55em"; 
         // ⬅️ Adjust spacing between words here (e.g., 0.25em, 1em, etc.)
         element.appendChild(spacer);
       } else {
@@ -95,7 +95,7 @@ export default function Copy1({
     tl.to(
       wordsRef.current,
       {
-        x: "50%",
+        x: "30%",
         transformOrigin: "center center",
         duration: 1,
         ease: "power3.out",
