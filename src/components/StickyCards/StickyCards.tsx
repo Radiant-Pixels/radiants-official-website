@@ -14,27 +14,32 @@ const StickyCards = () => {
             index: "01",
             title: "Pixels",
             image: "/next.svg",
-            description: "Radiant Pixels focuses on .."
+            description:
+            "Radiant Pixels specializes in crafting visually stunning, UI-centric web and mobile applications. We bring ideas to life with pixel-perfect interfaces and seamless user experiences that blend aesthetics with performance."
         },
         {
             index: "02",
             title: "Cores",
             image: "/next.svg",
-            description: "Radiant Cores focuses on .."
+            description:
+            "Radiant Cores delivers innovative hardware solutions — from embedded systems to custom-built devices. We design and engineer robust, efficient hardware tailored to meet real-world demands and integrate seamlessly with software ecosystems."
         },
         {
             index: "03",
             title: "Agents",
             image: "/next.svg",
-            description: "Radiant Agents focuses on .."
+            description:
+            "Radiant Agents powers the future with cutting-edge AI automation and intelligent software solutions. We build adaptive systems that learn, evolve, and optimize workflows, driving efficiency and unlocking new capabilities."
         },
         {
             index: "04",
             title: "SaaS",
             image: "/next.svg",
-            description: "Radiant SaaS focuses on .."
-        },
-    ]
+            description:
+            "Radiant SaaS turns visionary ideas into reality — delivering complete end-to-end solutions across both software and hardware. From concept to launch, we transform bold concepts into scalable products that accelerate business growth."
+        }
+    ];
+
 
     const container = useRef(null)
 
@@ -92,7 +97,7 @@ const StickyCards = () => {
 
                         <div className="sticky-card-copy">
                             <div className="sticky-card-copy-title">
-                                <p className='p'>(About the state)</p>
+                                <p className='p'>(About the Sector)</p>
                             </div>
                             <div className="sticky-card-copy-description">
                                 <p className='p'>{cardData.description}</p>

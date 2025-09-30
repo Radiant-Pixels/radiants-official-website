@@ -55,6 +55,15 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.container {
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center; /* horizontally center */
+  align-items: center;     /* vertically center */
+  text-align: center;
+}
+
 section {
   overflow: hidden;
   /* width: 100%; */

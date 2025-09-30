@@ -13,7 +13,7 @@ const Cards = () => {
             <StickyCards />
 
             <section className='outro'>
-                <h1 className='outro-header'>Coming Soon...</h1>
+                <h1 className='outro-header'>Projects Coming Soon...</h1>
             </section>
         </main>
     </>

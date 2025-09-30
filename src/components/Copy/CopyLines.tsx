@@ -1,87 +1,93 @@
 "use client";
+
 import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface CopyLinesProps {
+interface CopyProps {
   children: React.ReactElement;
   animateOnScroll?: boolean;
   delay?: number;
 }
 
-export default function CopyLines({
-  children,
-  animateOnScroll = true,
-  delay = 0,
-}: CopyLinesProps) {
+export default function CopyLines({ children, animateOnScroll = true, delay = 0 }: CopyProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const linesRef = useRef<HTMLElement[]>([]);
 
-  // Helper to wrap each line in a mask
+  // Helper to wrap each line in a custom mask
   const wrapLines = (element: HTMLElement) => {
-    const text = element.textContent ?? "";
-    element.innerHTML = "";
+    const text = element.innerText;
+    element.innerHTML = ""; // clear existing content
 
-    // split by line breaks (\n)
+    // Simple split: by line breaks
     const splitLines = text.split("\n");
-    const created: HTMLElement[] = [];
+
+    const lines: HTMLElement[] = [];
 
     splitLines.forEach((lineText) => {
       const mask = document.createElement("div");
-      mask.className = "inline-block overflow-hidden w-full";
+      mask.className = "custom-mask overflow-hidden"; // your mask wrapper
 
       const inner = document.createElement("div");
-      inner.className = "inline-block w-full";
-      inner.textContent = lineText;
-
-      // make sure font styling is inherited
-      inner.style.font = "inherit";
+      inner.className = "line-inner inline-block text-justify font-aeonik font-bold w-[85vw] md:w-[85%]";
+      inner.innerText = lineText;
 
       mask.appendChild(inner);
       element.appendChild(mask);
-      created.push(mask);
+
+      lines.push(inner);
     });
 
-    return created;
+    return lines;
   };
 
   useEffect(() => {
     if (!containerRef.current) return;
 
+    // Reset refs
     linesRef.current = [];
+
     const elements: Element[] = containerRef.current.hasAttribute("data-copy-wrapper")
       ? Array.from(containerRef.current.children)
       : [containerRef.current];
 
     elements.forEach((el) => {
-      linesRef.current.push(...wrapLines(el as HTMLElement));
+      const htmlEl = el as HTMLElement;
+      const wrappedLines = wrapLines(htmlEl);
+      linesRef.current.push(...wrappedLines);
     });
 
+    // Initial state
     gsap.set(linesRef.current, { y: "100%", opacity: 0 });
 
-    const tl = gsap.timeline({
-      scrollTrigger: animateOnScroll
-        ? { trigger: containerRef.current, start: "top 75%" }
-        : undefined,
-      delay,
-    });
-
-    // animate each line
-    tl.to(linesRef.current, {
+    const animationProps = {
       y: "0%",
       opacity: 1,
-      duration: 0.6,
+      duration: 0.8,
       stagger: 0.1,
       ease: "power4.out",
-    });
-
-    return () => {
-      tl.kill();
-      ScrollTrigger.getAll().forEach((st) => st.kill());
+      delay: delay
     };
+
+    if (animateOnScroll) {
+      gsap.to(linesRef.current, {
+        ...animationProps,
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 75%",
+        //   once: true
+        }
+      });
+    } else {
+      gsap.to(linesRef.current, animationProps);
+    }
   }, [animateOnScroll, delay]);
+
+  if (React.Children.count(children) === 1) {
+    return <div ref={containerRef}>{children}</div>;
+  }
 
   return (
     <div ref={containerRef} data-copy-wrapper="true">

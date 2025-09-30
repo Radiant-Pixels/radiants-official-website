@@ -195,6 +195,10 @@ const HeroWithPreloader = () => {
 
         <div ref={heroBoxRef} className={styles.heroBox}></div>
       </section>
+      <br />
+      <br />
+      <br />
+      <br />
     </>
   );
 };
