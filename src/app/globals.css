@@ -3,6 +3,9 @@
 :root {
   --background: #171717;
   --foreground: #ffffff;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 @font-face {
@@ -31,6 +34,11 @@
   src: url("/fonts/SCHABO-Condensed.woff") format("woff"),
 }
 
+@font-face {
+  font-family: "Whyte";
+  src: url("/fonts/WhyteInktrap-Regular.woff2") format("woff2"),
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -40,6 +48,9 @@
   --font-playfair: var(--font-playfair);
   --font-schabo: Schabo;
   --font-aeonik: Aeonik;
+  --font-whyte: Whyte;
+  --font-soehnse: Soehnse;
+  --font-blanquotey: Blanquotey;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -47,6 +58,12 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+}
+
+html {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
 body {

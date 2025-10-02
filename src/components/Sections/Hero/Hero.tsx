@@ -143,6 +143,7 @@ const HeroWithPreloader = () => {
       },
     });
   };
+  
 
   return (
     <>
@@ -150,7 +151,7 @@ const HeroWithPreloader = () => {
       {!loaded && (
   <div
     ref={preloaderRef}
-    className="fixed inset-0 bg-amber-300 text-[#1a1a1a] font-mono z-[9999] flex items-center justify-center p-4"
+    className="fixed inset-0 bg-[#ebebeb] text-[#1a1a1a] font-mono z-[9999] flex items-center justify-center p-4"
   >
     <div
       className="
@@ -187,7 +188,7 @@ const HeroWithPreloader = () => {
       <section ref={heroRef} className={styles.hero}>
         <div ref={overlayRef} className={styles.overlay}></div>
 
-        <Navbar />
+        
 
         <div ref={headerRef} className={styles.header}>
           <h1>radiants</h1>
@@ -204,3 +205,89 @@ const HeroWithPreloader = () => {
 };
 
 export default HeroWithPreloader;
+
+// "use client";
+// import React, { useRef, useEffect } from "react";
+// import gsap from "gsap";
+// import { CustomEase } from "gsap/CustomEase";
+// import styles from "./Hero.module.scss";
+
+// const Hero: React.FC = () => {
+//   const heroRef = useRef<HTMLElement>(null);
+//   const overlayRef = useRef<HTMLDivElement>(null);
+//   const heroBoxRef = useRef<HTMLDivElement>(null);
+//   const headerRef = useRef<HTMLDivElement>(null);
+
+//   useEffect(() => {
+//     if (!heroRef.current || !overlayRef.current || !heroBoxRef.current || !headerRef.current)
+//       return;
+
+//     gsap.registerPlugin(CustomEase);
+//     CustomEase.create(
+//       "hop",
+//       "M0,0 C0.29,0 0.348,0.05 0.422,0.134 0.494,0.217 0.484,0.355 0.5,0.5 0.518,0.662 0.515,0.793 0.596,0.876 0.701,0.983 0.72,0.987 1,1"
+//     );
+
+//     const h1 = headerRef.current.querySelector("h1");
+//     if (h1) {
+//       const splitText = h1.innerText
+//         .split("")
+//         .map((char) => `<span>${char === " " ? "&nbsp;&nbsp;" : char}</span>`)
+//         .join("");
+//       h1.innerHTML = splitText;
+//     }
+
+//     gsap.to(heroRef.current, {
+//       clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
+//       duration: 2,
+//       ease: "hop",
+//       onStart: () => {
+//         gsap.to(heroRef.current, {
+//           transform: "translate(-50%, -50%) scale(1)",
+//           duration: 2.25,
+//           ease: "power3.inOut",
+//           delay: 0.25,
+//         });
+
+//         gsap.to(overlayRef.current, {
+//           clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+//           duration: 2,
+//           delay: 0.5,
+//           ease: "hop",
+//         });
+
+//         const img = heroBoxRef.current ? heroBoxRef.current.querySelector("img") : null;
+//         if (img) {
+//           gsap.to(img, {
+//             transform: "scale(1)",
+//             duration: 2.25,
+//             ease: "power3.inOut",
+//             delay: 0.25,
+//           });
+//         }
+
+//         if (headerRef.current) {
+//           gsap.to(headerRef.current.querySelectorAll("span"), {
+//             y: 0,
+//             stagger: 0.1,
+//             duration: 1.75,
+//             ease: "power4.inOut",
+//             delay: 0.75,
+//           });
+//         }
+//       },
+//     });
+//   }, []);
+
+//   return (
+//     <section ref={heroRef} className={styles.hero}>
+//       <div ref={overlayRef} className={styles.overlay}></div>
+//       <div ref={headerRef} className={styles.header}>
+//         <h1>radiants</h1>
+//       </div>
+//       <div ref={heroBoxRef} className={styles.heroBox}></div>
+//     </section>
+//   );
+// };
+
+// export default Hero;

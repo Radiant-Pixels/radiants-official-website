@@ -23,7 +23,7 @@ img {
     width: 100%;
     height: 100svh;
     background-color: #1a1a1a;
-    color: oklch(87.9% 0.169 91.605);
+    color: #ebebeb;
     display: flex;
     justify-content: center;
     align-items: center;

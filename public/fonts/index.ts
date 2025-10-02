@@ -14,3 +14,8 @@ export const aeonik = localFont({
   src: "./Aeonik-Regular.woff2",
   variable: "--font-aeonik",
 });
+
+export const whyte = localFont({
+  src: "./WhyteInktrap-Regular.woff2",
+  variable: "--font-whyte",
+})
